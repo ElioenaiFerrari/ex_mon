@@ -7,4 +7,12 @@ defmodule ExMon.Game.Status do
   end
 
   def print_wrong_move_message(move), do: "Wrong move #{move}"
+
+  def print_move_message(:computer, :attack, damage) do
+    "The player attacked the computer dealing #{damage} damage"
+  end
+
+  def print_move_message(:player, :attack, damage) do
+    "The computer attacked the player dealing #{damage} damage"
+  end
 end
