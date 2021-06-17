@@ -12,7 +12,7 @@ defmodule ExMon do
     |> create_player(:punch, :kick, :heal)
     |> Game.start(player)
 
-    Status.print_round_message()
+    Status.print_round_message(Game.info())
   end
 
   def make_move(move) do
@@ -26,6 +26,8 @@ defmodule ExMon do
       :move_heal -> "health_move"
       move -> Actions.attack(move)
     end
+
+    Status.print_round_message(Game.info())
   end
 
   defp do_move({:error, move}), do: Status.print_wrong_move_message(move)
